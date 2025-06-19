@@ -15,7 +15,8 @@ class PBAKER_PT_SubPanel(Panel):
     bl_context = "objectmode"
     bl_label = "Subpanel"
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.settings = bpy.context.scene.principled_baker_settings
         self.render_settings = bpy.context.scene.render.bake
 
@@ -26,6 +27,7 @@ class PBAKER_PT_SubPanel(Panel):
 class PBAKER_PT_BakeList(PBAKER_PT_SubPanel):
     bl_parent_id = "PBAKER_PT_Main"
     bl_label = "Autodetect/Bake List"
+
 
     def draw(self, context):
         # Autodetect
